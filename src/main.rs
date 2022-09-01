@@ -27,6 +27,12 @@ fn main() {
     }
 }
 
+/* Context Free Grammer:
+ * OBJECT: "{"(PAIR(","PIAR)*)?"}"
+ *   PAIR: stringlit:VALUE
+ *  VALUE: OBJECT | ARRAY | stringlit | num
+ *  ARRAY: "["(VALUE(","VALUE)*?"]"
+ */
 fn parse_object(json: &Vec<char>, pos: &mut usize) -> bool {
     escape_whitespace(json, pos);
     let tmp_pos = *pos;
